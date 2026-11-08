@@ -1,4 +1,5 @@
 import { Photo } from "@/components/photo";
+import { BrandMark } from "@/components/brand-mark";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, MapPin, Users, BedDouble, Check } from "lucide-react";
@@ -42,9 +43,7 @@ export default async function Page({
             {stay.location}, Sri Lanka <span>·</span> {stay.note}
           </p>
         </div>
-        <span className="detail-mark" aria-hidden="true">
-          ✳
-        </span>
+        <BrandMark className="detail-mark" />
       </div>
       <div className="property-gallery">
         <Photo

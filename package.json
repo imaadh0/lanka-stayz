@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --hostname 127.0.0.1",
-    "build": "next build",
+    "dev": "node init && next dev --hostname 127.0.0.1",
+    "build": "node init && next build",
     "assets": "node scripts/assets.mjs",
-    "start": "node scripts/serve.mjs",
+    "start": "node init && node scripts/serve.mjs",
     "typecheck": "tsc --noEmit",
     "test": "node scripts/test.mjs",
     "format": "prettier --write app components lib scripts *.json *.ts *.mjs"

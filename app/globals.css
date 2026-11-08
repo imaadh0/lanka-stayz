@@ -189,6 +189,8 @@ button {
   gap: 5px;
 }
 .brand-sun {
+  flex: none;
+  display: block;
   font-size: 31px;
   color: var(--gold);
   line-height: 1;
