@@ -41,9 +41,12 @@ export function Search({
           checkout,
           guests,
         });
-        router.push(`/stays/?${params}`, {
-          scroll: !pathname.startsWith("/stays"),
-        });
+        const url = `/stays/?${params}`;
+        if (pathname === "/stays" || pathname === "/stays/") {
+          window.history.pushState(null, "", url);
+        } else {
+          router.push(url);
+        }
       }}
     >
       <SearchControls

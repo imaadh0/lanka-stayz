@@ -1,11 +1,10 @@
 "use client";
-import { useSearchParams, useRouter } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import { Search } from "./search";
 import { StayCard } from "./stay-card";
 import { destinations, filterStays } from "@/lib/stays";
 export function Listings() {
   const params = useSearchParams();
-  const router = useRouter();
   const destination = params.get("destination") || "";
   const rawGuests = Number(params.get("guests") || 1);
   const guests =
@@ -28,13 +27,14 @@ export function Listings() {
       <div className="filter-row" aria-label="Filter by destination">
         {["", ...destinations].map((d) => (
           <button
+            type="button"
             key={d}
             className={destination === d ? "filter-chip active" : "filter-chip"}
             aria-pressed={destination === d}
             onClick={() => {
               const p = new URLSearchParams(params.toString());
               p.set("destination", d);
-              router.push(`/stays/?${p}`, { scroll: false });
+              window.history.pushState(null, "", `/stays/?${p}`);
             }}
           >
             {d || "All destinations"}
@@ -62,8 +62,9 @@ export function Listings() {
             guests.
           </p>
           <button
+            type="button"
             className="button"
-            onClick={() => router.push("/stays/", { scroll: false })}
+            onClick={() => window.history.pushState(null, "", "/stays/")}
           >
             Reset filters
           </button>
