@@ -1,5 +1,6 @@
 "use client";
 import { SocialLinks } from "./social-links";
+import { BrandMark } from "./brand-mark";
 import Link from "next/link";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
@@ -8,7 +9,8 @@ export function Brand() {
   return (
     <Link className="brand" href="/" aria-label="Lanka Stayz home">
       <span className="brand-name">
-        lanka stayz<span className="brand-sun">✳</span>
+        lanka stayz
+        <BrandMark className="brand-sun" />
       </span>
       <span className="brand-caption">SOMEWHERE THAT FEELS LIKE YOU</span>
     </Link>

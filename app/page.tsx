@@ -1,4 +1,5 @@
 import { Photo } from "@/components/photo";
+import { BrandMark } from "@/components/brand-mark";
 import Link from "next/link";
 import { ArrowDown, ArrowUpRight, Compass, Sun, Waves } from "lucide-react";
 import { Search } from "@/components/search";
@@ -64,9 +65,7 @@ export default function Home() {
             Meet Lanka Stayz <ArrowUpRight size={17} />
           </Link>
         </div>
-        <span className="intro-mark" aria-hidden="true">
-          ✳
-        </span>
+        <BrandMark className="intro-mark" />
       </section>
       <section id="collection" className="collection wrap">
         <div className="section-heading">
