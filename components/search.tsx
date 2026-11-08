@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { ArrowUpRight, MapPin, CalendarDays, Users } from "lucide-react";
 import { SearchControls } from "./search-controls";
 import { todayISO, validateDates } from "@/lib/booking";
@@ -16,6 +16,7 @@ export function Search({
   initialGuests?: string;
 }) {
   const router = useRouter();
+  const pathname = usePathname();
   const [destination, setDestination] = useState(initialDestination);
   const [checkin, setCheckin] = useState(initialCheckin);
   const [checkout, setCheckout] = useState(initialCheckout);
@@ -40,7 +41,9 @@ export function Search({
           checkout,
           guests,
         });
-        router.push(`/stays/?${params}`);
+        router.push(`/stays/?${params}`, {
+          scroll: !pathname.startsWith("/stays"),
+        });
       }}
     >
       <SearchControls

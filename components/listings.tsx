@@ -34,7 +34,7 @@ export function Listings() {
             onClick={() => {
               const p = new URLSearchParams(params.toString());
               p.set("destination", d);
-              router.push(`/stays/?${p}`);
+              router.push(`/stays/?${p}`, { scroll: false });
             }}
           >
             {d || "All destinations"}
@@ -49,7 +49,7 @@ export function Listings() {
         <span>A considered collection, at your pace.</span>
       </div>
       {results.length ? (
-        <div className="property-grid">
+        <div className="property-grid" key={`${destination}:${guests}`}>
           {results.map((s) => (
             <StayCard key={s.slug} stay={s} query={query} />
           ))}
@@ -61,7 +61,10 @@ export function Listings() {
             No stays match these filters. Try another destination or fewer
             guests.
           </p>
-          <button className="button" onClick={() => router.push("/stays/")}>
+          <button
+            className="button"
+            onClick={() => router.push("/stays/", { scroll: false })}
+          >
             Reset filters
           </button>
         </div>

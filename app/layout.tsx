@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { Header, Footer } from "@/components/shell";
+import { SiteMotion } from "@/components/site-motion";
 export const metadata: Metadata = {
   title: {
     default: "Lanka Stayz — Somewhere that feels like you",
@@ -18,6 +19,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+        <SiteMotion />
         <a href="#main" className="skip-link">
           Skip to content
         </a>
